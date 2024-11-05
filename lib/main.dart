@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'Welcome_Screen.dart';
-  
+
 void main() {
   runApp(MyApp());
 }
 
+// Comment here
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class _SignInScreenState extends State<SignInScreen> {
       throw 'Could not launch $url';
     }
   }
+
   Future<void> _launchLine() async {
     const url = 'https://www.line.me';
     if (await canLaunch(url)) {
@@ -50,7 +52,8 @@ class _SignInScreenState extends State<SignInScreen> {
             children: [
               Container(
                 color: const Color.fromARGB(255, 120, 233, 124),
-                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -85,7 +88,8 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Container(
                 color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -137,57 +141,61 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                       const SizedBox(height: 10),
                       ElevatedButton(
-                          onPressed: () {
-                            // Xu ly dang nhap
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const TourScreen()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(vertical: 14.0),
-                            backgroundColor: Colors.teal,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(7.0),
-                            ),
-                          ),
-                          child: const Text(
-                            'SIGN IN',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white, // Đổi màu chữ thành trắng
-                            ),
+                        onPressed: () {
+                          // Xu ly dang nhap
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const TourScreen()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 14.0),
+                          backgroundColor: Colors.teal,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(7.0),
                           ),
                         ),
-
+                        child: const Text(
+                          'SIGN IN',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white, // Đổi màu chữ thành trắng
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                            onPressed: _launchFacebook,  // Dẫn tới Facebook
-                            icon: Image.asset('assets/face.jpg', height: 40, width: 40),
+                            onPressed: _launchFacebook, // Dẫn tới Facebook
+                            icon: Image.asset('assets/face.jpg',
+                                height: 40, width: 40),
                             iconSize: 40,
                           ),
                           IconButton(
                             onPressed: () {},
-                            icon: Image.asset('assets/talk.jpg', height: 40, width: 40),
+                            icon: Image.asset('assets/talk.jpg',
+                                height: 40, width: 40),
                             iconSize: 40,
                           ),
                           IconButton(
                             onPressed: _launchLine,
-                            icon: Image.asset('assets/line.jpg', height: 40, width: 40),
+                            icon: Image.asset('assets/line.jpg',
+                                height: 40, width: 40),
                             iconSize: 40,
                           ),
                         ],
-                      ),   
+                      ),
                       const SizedBox(height: 20),
                       Center(
                         child: TextButton(
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => SignUpScreen()),
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()),
                             );
                           },
                           child: const Text('Don\'t have an account? Sign Up'),
@@ -211,7 +219,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  String _selectedRole = 'Traveler'; 
+  String _selectedRole = 'Traveler';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,7 +230,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: [
               Container(
                 color: const Color.fromARGB(255, 120, 233, 124),
-                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -256,17 +265,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
               clipper: MyCustomClipper(),
               child: Container(
                 color: Colors.white,
-                child: SingleChildScrollView( // Thêm tính năng cuộn
+                child: SingleChildScrollView(
+                  // Thêm tính năng cuộn
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 20.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        
                         const SizedBox(height: 20),
                         const Text(
                           'Sign Up',
-                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 20),
 
@@ -279,8 +290,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 title: const Text('Traveler'),
                                 value: 'Traveler',
                                 groupValue: _selectedRole,
-                                onChanged: (String? value) { 
-                                  setState(() {  
+                                onChanged: (String? value) {
+                                  setState(() {
                                     _selectedRole = value!;
                                   });
                                 },
@@ -310,16 +321,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 children: [
                                   Text(
                                     'First Name',
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(height: 8),
                                   TextField(
                                     decoration: InputDecoration(
                                       enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.black),
+                                        borderSide:
+                                            BorderSide(color: Colors.black),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.green),
+                                        borderSide:
+                                            BorderSide(color: Colors.green),
                                       ),
                                     ),
                                   ),
@@ -333,16 +348,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 children: [
                                   Text(
                                     'Last Name',
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                   SizedBox(height: 8),
                                   TextField(
                                     decoration: InputDecoration(
                                       enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.black),
+                                        borderSide:
+                                            BorderSide(color: Colors.black),
                                       ),
                                       focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.green),
+                                        borderSide:
+                                            BorderSide(color: Colors.green),
                                       ),
                                     ),
                                   ),
@@ -357,7 +376,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Text(
                               'Email',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: 8),
                             TextField(
@@ -378,7 +398,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Text(
                               'Password',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: 8),
                             TextField(
@@ -400,7 +421,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Text(
                               'Confirm Password',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: 8),
                             TextField(
@@ -431,28 +453,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.pop(context); // Chuyển vào trong hàm onPressed
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0), // Điều chỉnh padding nhỏ hơn
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(7.0),
-                                side: const BorderSide(color: Color.fromARGB(255, 253, 253, 253)),
-                              ),
-                              minimumSize: const Size(5, 10), // Kích thước tối thiểu của button
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap, // Thu gọn kích thước button khi nhấn
-                              elevation: 4, // Độ nổi
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(
+                                context); // Chuyển vào trong hàm onPressed
+                          },
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 8.0,
+                                horizontal: 10.0), // Điều chỉnh padding nhỏ hơn
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7.0),
+                              side: const BorderSide(
+                                  color: Color.fromARGB(255, 253, 253, 253)),
                             ),
-                            child: const Text(
-                              'Already have an account? Sign in',
-                              style: TextStyle(fontSize: 16, color: Color.fromARGB(255, 163, 210, 237)),
-                            ),
-                          )
-
-
+                            minimumSize: const Size(
+                                5, 10), // Kích thước tối thiểu của button
+                            tapTargetSize: MaterialTapTargetSize
+                                .shrinkWrap, // Thu gọn kích thước button khi nhấn
+                            elevation: 4, // Độ nổi
+                          ),
+                          child: const Text(
+                            'Already have an account? Sign in',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Color.fromARGB(255, 163, 210, 237)),
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -465,13 +493,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+
 class MyCustomClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
 
     path.moveTo(0, size.height * 0.05);
-    path.quadraticBezierTo(size.width / 2, -size.height * 0.05, size.width, size.height * 0.05);
+    path.quadraticBezierTo(
+        size.width / 2, -size.height * 0.05, size.width, size.height * 0.05);
 
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
