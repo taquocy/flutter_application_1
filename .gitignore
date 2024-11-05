@@ -1,0 +1,54 @@
+# Flutter/Dart files
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-versions
+pubspec.lock
+pubspec.yaml.orig
+
+# Build outputs
+build/
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.generated/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/DerivedData/
+ios/.symlinks/
+ios/Flutter/ephemeral/
+
+# Android
+android/.gradle/
+android/app/*.iml
+android/*.iml
+.android/
+app/**/*.iml
+android/gradle/wrapper/gradle-wrapper.properties
+gradle.properties
+
+# Web
+web/.dart_tool/
+web/chrome-device/
+.dart_tool/chrome-device/
+
+# Visual Studio Code files
+.vscode/
+.idea/
+*.iml
+
+# Temporary files
+*.swp
+*.lock
+*.log
+*.tmp
+*.temp
+*.cache
+*.bak
+*.old
+
+# Miscellaneous
+*.DS_Store
+*.log
